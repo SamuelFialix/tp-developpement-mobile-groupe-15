@@ -10,11 +10,12 @@ class  EcranAccueil extends StatelessWidget {
 
   IconData _iconeMeteo(String  condition){
     switch (condition){
-      case 'Ensoleille': return Icons.wb_sunny;
+      case 'Ensoleille': return Icons.sunny;
       case 'Nuageux': return Icons.cloud;
       case 'Pluvieux': return Icons.umbrella;
       case 'Orageux': return Icons.thunderstorm;
       case 'Ventueux': return Icons.air;
+      case 'Canicule' : return Icons.sunny;
       default        : return Icons.wb_cloudy;
     }
   }

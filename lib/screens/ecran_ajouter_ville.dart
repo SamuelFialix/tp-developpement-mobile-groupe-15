@@ -17,7 +17,7 @@ class _EcranAjouterVilleState extends State<EcranAjouterVille> {
   final _humiditeController = TextEditingController();
 
   String _conditionSelectionnee = 'Ensoleille';
-  final List<String> _conditions = ['Ensoleille', 'Nuageux', 'Pluvieux', 'Orageux', 'Vertueux'];
+  final List<String> _conditions = ['Ensoleille', 'Nuageux', 'Pluvieux', 'Orageux', 'Vertueux', 'Canicule'];
 
   @override
   void dispose(){

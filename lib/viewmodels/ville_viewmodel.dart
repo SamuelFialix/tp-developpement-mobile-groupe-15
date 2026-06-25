@@ -13,12 +13,14 @@ class VilleViewModel extends ChangeNotifier{
   }
   void _initialiser(){
     _villes = [
-      Ville(nom:'Cotonou', pays: 'Benin', temperature: 29, condition: 'Ensoleille', humidite: 75),
+      Ville(nom:'Cotonou', pays: 'Benin', temperature: 45, condition: 'Ensoleille', humidite: 75),
       Ville(nom:'Parakou', pays: 'Benin', temperature: 32, condition: 'Ensoleille', humidite: 60),
       Ville(nom:'Lagos', pays: 'Nigeria', temperature: 31, condition: 'Nuageux', humidite: 80),
       Ville(nom:'Abidjan', pays: 'CI', temperature: 27, condition: 'Pluvieux', humidite: 85),
       Ville(nom:'Abuja', pays: 'Nigeria', temperature: 30, condition: 'Orageux', humidite: 87),
       Ville(nom:'Yamoussoukro', pays: 'CI', temperature: 6, condition: 'Ventueux', humidite: 95),
+      Ville(nom:'paris', pays: 'FR', temperature: 10, condition: 'Orageux', humidite: 25),
+
     ];
     _villeSelectionnee = _villes.first;
     notifyListeners();
