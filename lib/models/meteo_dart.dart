@@ -42,6 +42,9 @@ class MeteoData{
     if(weatherCode >= 95) return 'Orageux';
     return 'Variable';
   }
+  bool estDangereux(){
+    return temperature > 40 || weatherCode >= 95;
+  }
   String get heureFormatee{
     final dt = DateTime.parse(heure);
     final jour = dt.day.toString().padLeft(2, '0');

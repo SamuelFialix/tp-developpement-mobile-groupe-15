@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'viewmodels/ville_viewmodel.dart';
 import 'screens/ecran_accueil.dart';
+import 'services/notification_service.dart';
 
-void main(){
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService.initialiser();
+  await NotificationService.planifierNotificationQuotidienne();
   runApp(
     ChangeNotifierProvider(
         create:(_) => VilleViewModel(),

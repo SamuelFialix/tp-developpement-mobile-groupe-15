@@ -12,6 +12,7 @@ class MeteoService {
     'Yamoussoukro': [6.8266, -5.2893],
   };
 
+  static Map<String, List<double>> get coordss => _coords;
   final Dio _dio = Dio(BaseOptions(
     baseUrl: 'https://api.open-meteo.com/v1',
     connectTimeout: Duration(seconds: 10),
