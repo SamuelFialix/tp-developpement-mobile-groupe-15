@@ -2,14 +2,15 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationService {
   static final FlutterLocalNotificationsPlugin _plugin =
-  FlutterLocalNotificationsPlugin();
+      FlutterLocalNotificationsPlugin();
 
   /// A appeler une seule fois au demarrage de l'app.
   static Future<void> initialiser() async {
     const AndroidInitializationSettings parametresAndroid =
-    AndroidInitializationSettings('@mipmap/ic_launcher');
-    const InitializationSettings parametres =
-    InitializationSettings(android: parametresAndroid);
+        AndroidInitializationSettings('@mipmap/ic_launcher');
+    const InitializationSettings parametres = InitializationSettings(
+      android: parametresAndroid,
+    );
 
     await _plugin.initialize(parametres);
   }

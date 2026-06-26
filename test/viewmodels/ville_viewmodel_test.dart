@@ -3,7 +3,6 @@ import 'package:app_meteo/viewmodels/ville_viewmodel.dart';
 import 'package:app_meteo/models/ville.dart';
 
 void main() {
-
   late VilleViewModel vm;
 
   setUp(() {
@@ -12,7 +11,6 @@ void main() {
   });
 
   group('VilleViewModel', () {
-
     test('la liste initiale contient au moins 4 villes', () {
       expect(vm.villes.length, greaterThanOrEqualTo(4));
     });
@@ -66,6 +64,5 @@ void main() {
       // ASSERT : au moins une notification a eu lieu
       expect(compteur, greaterThan(0));
     });
-
   });
 }

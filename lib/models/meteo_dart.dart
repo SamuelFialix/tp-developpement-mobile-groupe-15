@@ -1,6 +1,6 @@
 import 'package:app_meteo/models/prevision_jour.dart';
 
-class MeteoData{
+class MeteoData {
   final double temperature;
   final int humidite;
   final int weatherCode;
@@ -8,15 +8,14 @@ class MeteoData{
   final List<PrevisionJour> previsions;
 
   MeteoData({
-   required this.temperature,
-   required this.humidite,
-   required this.weatherCode,
-   required this.heure,
-   required this.previsions,
+    required this.temperature,
+    required this.humidite,
+    required this.weatherCode,
+    required this.heure,
+    required this.previsions,
   });
 
-
-  factory MeteoData.fromJson(Map<String, dynamic> json){
+  factory MeteoData.fromJson(Map<String, dynamic> json) {
     final current = json['current'] as Map<String, dynamic>;
     final daily = json['daily'] as Map<String, dynamic>;
 
@@ -34,18 +33,20 @@ class MeteoData{
     );
   }
 
-  String get conditionTexte{
-    if(weatherCode == 0) return 'Ensoleille';
-    if(weatherCode <= 3) return 'Nuageux';
-    if(weatherCode >= 51 && weatherCode <= 67) return 'Pluvieux';
-    if(weatherCode >= 80 && weatherCode <= 82) return 'Averses';
-    if(weatherCode >= 95) return 'Orageux';
+  String get conditionTexte {
+    if (weatherCode == 0) return 'Ensoleille';
+    if (weatherCode <= 3) return 'Nuageux';
+    if (weatherCode >= 51 && weatherCode <= 67) return 'Pluvieux';
+    if (weatherCode >= 80 && weatherCode <= 82) return 'Averses';
+    if (weatherCode >= 95) return 'Orageux';
     return 'Variable';
   }
-  bool estDangereux(){
+
+  bool estDangereux() {
     return temperature > 40 || weatherCode >= 95;
   }
-  String get heureFormatee{
+
+  String get heureFormatee {
     final dt = DateTime.parse(heure);
     final jour = dt.day.toString().padLeft(2, '0');
     final mois = dt.month.toString().padLeft(2, '0');

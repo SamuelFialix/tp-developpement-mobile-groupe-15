@@ -8,9 +8,7 @@ import 'package:app_meteo/screens/ecran_accueil.dart';
 Widget creerAppTest() {
   return ChangeNotifierProvider(
     create: (_) => VilleViewModel(),
-    child: MaterialApp(
-      home: EcranAccueil(),
-    ),
+    child: MaterialApp(home: EcranAccueil()),
   );
 }
 
@@ -20,11 +18,12 @@ Widget creerAppTest() {
 // (toujours en erreur 400 dans l'environnement de test) reste actif.
 Future<void> pumperEtAttendreAnimation(WidgetTester tester) async {
   await tester.pump(); // premier build
-  await tester.pump(const Duration(milliseconds: 350)); // laisse passer l'animation d'ouverture
+  await tester.pump(
+    const Duration(milliseconds: 350),
+  ); // laisse passer l'animation d'ouverture
 }
 
 void main() {
-
   testWidgets('EcranAccueil affiche une AppBar avec le titre', (tester) async {
     // Monter le widget
     await tester.pumpWidget(creerAppTest());
@@ -45,7 +44,10 @@ void main() {
     // donc on verifie que l'ecran affiche soit la temperature, soit le
     // message d'erreur reseau prevu par l'application.
     final aUneTemperature = find.textContaining('C').evaluate().isNotEmpty;
-    final aUneErreur = find.text('Impossible de charger la meteo').evaluate().isNotEmpty;
+    final aUneErreur = find
+        .text('Impossible de charger la meteo')
+        .evaluate()
+        .isNotEmpty;
 
     expect(aUneTemperature || aUneErreur, isTrue);
   });
@@ -69,5 +71,4 @@ void main() {
     // ASSERT : l'ecran de liste est visible
     expect(find.text('Choisir une ville'), findsOneWidget);
   });
-
 }

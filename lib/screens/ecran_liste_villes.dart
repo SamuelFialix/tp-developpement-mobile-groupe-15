@@ -19,7 +19,7 @@ class EcranListeVilles extends StatelessWidget {
       ),
       body: ListView.builder(
         itemCount: vm.villes.length,
-        itemBuilder: (context, index){
+        itemBuilder: (context, index) {
           final ville = vm.villes[index];
           final estSelectionnee = ville.nom == vm.villeSelectionnee?.nom;
           return ListTile(
@@ -42,20 +42,20 @@ class EcranListeVilles extends StatelessWidget {
             onTap: () {
               context.read<VilleViewModel>().selectionnerVille(ville);
               Navigator.pop(context);
-            }
+            },
           );
-        }
+        },
       ),
       floatingActionButton: FloatingActionButton.extended(
-          onPressed: (){
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const EcranAjouterVille()),
-            );
-          },
-          icon: const Icon(Icons.add),
-          label: const Text('Ajouter'),
-          ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const EcranAjouterVille()),
+          );
+        },
+        icon: const Icon(Icons.add),
+        label: const Text('Ajouter'),
+      ),
     );
   }
 }

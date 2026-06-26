@@ -3,7 +3,6 @@ import 'package:app_meteo/models/meteo_dart.dart';
 
 void main() {
   group('MeteoData', () {
-
     // Test 1 : verifier que fromJson parse correctement
     test('fromJson parse la temperature correctement', () {
       final json = {
@@ -82,48 +81,66 @@ void main() {
 
     test('conditionTexte retourne Nuageux pour code 1', () {
       final meteo = MeteoData(
-        temperature: 25, humidite: 50, weatherCode: 1,
-        heure: '2026-06-26T12:00', previsions: [],
+        temperature: 25,
+        humidite: 50,
+        weatherCode: 1,
+        heure: '2026-06-26T12:00',
+        previsions: [],
       );
       expect(meteo.conditionTexte, equals('Nuageux'));
     });
 
     test('conditionTexte retourne Nuageux pour code 3', () {
       final meteo = MeteoData(
-        temperature: 25, humidite: 50, weatherCode: 3,
-        heure: '2026-06-26T12:00', previsions: [],
+        temperature: 25,
+        humidite: 50,
+        weatherCode: 3,
+        heure: '2026-06-26T12:00',
+        previsions: [],
       );
       expect(meteo.conditionTexte, equals('Nuageux'));
     });
 
     test('conditionTexte retourne Averses pour code 80', () {
       final meteo = MeteoData(
-        temperature: 25, humidite: 50, weatherCode: 80,
-        heure: '2026-06-26T12:00', previsions: [],
+        temperature: 25,
+        humidite: 50,
+        weatherCode: 80,
+        heure: '2026-06-26T12:00',
+        previsions: [],
       );
       expect(meteo.conditionTexte, equals('Averses'));
     });
 
     test('conditionTexte retourne Averses pour code 82', () {
       final meteo = MeteoData(
-        temperature: 25, humidite: 50, weatherCode: 82,
-        heure: '2026-06-26T12:00', previsions: [],
+        temperature: 25,
+        humidite: 50,
+        weatherCode: 82,
+        heure: '2026-06-26T12:00',
+        previsions: [],
       );
       expect(meteo.conditionTexte, equals('Averses'));
     });
 
     test('conditionTexte retourne Orageux pour code 95 et plus', () {
       final meteo = MeteoData(
-        temperature: 25, humidite: 50, weatherCode: 95,
-        heure: '2026-06-26T12:00', previsions: [],
+        temperature: 25,
+        humidite: 50,
+        weatherCode: 95,
+        heure: '2026-06-26T12:00',
+        previsions: [],
       );
       expect(meteo.conditionTexte, equals('Orageux'));
     });
 
     test('conditionTexte retourne Variable pour un code inconnu', () {
       final meteo = MeteoData(
-        temperature: 25, humidite: 50, weatherCode: 45,
-        heure: '2026-06-26T12:00', previsions: [],
+        temperature: 25,
+        humidite: 50,
+        weatherCode: 45,
+        heure: '2026-06-26T12:00',
+        previsions: [],
       );
       expect(meteo.conditionTexte, equals('Variable'));
     });
@@ -132,35 +149,46 @@ void main() {
 
     test('estDangereux retourne true si chaud ET orage', () {
       final meteo = MeteoData(
-        temperature: 42, humidite: 50, weatherCode: 95,
-        heure: '2026-06-26T12:00', previsions: [],
+        temperature: 42,
+        humidite: 50,
+        weatherCode: 95,
+        heure: '2026-06-26T12:00',
+        previsions: [],
       );
       expect(meteo.estDangereux(), isTrue);
     });
 
     test('estDangereux retourne true si chaud seul (T > 40)', () {
       final meteo = MeteoData(
-        temperature: 41, humidite: 50, weatherCode: 0,
-        heure: '2026-06-26T12:00', previsions: [],
+        temperature: 41,
+        humidite: 50,
+        weatherCode: 0,
+        heure: '2026-06-26T12:00',
+        previsions: [],
       );
       expect(meteo.estDangereux(), isTrue);
     });
 
     test('estDangereux retourne true si orage seul (code >= 95)', () {
       final meteo = MeteoData(
-        temperature: 28, humidite: 50, weatherCode: 96,
-        heure: '2026-06-26T12:00', previsions: [],
+        temperature: 28,
+        humidite: 50,
+        weatherCode: 96,
+        heure: '2026-06-26T12:00',
+        previsions: [],
       );
       expect(meteo.estDangereux(), isTrue);
     });
 
     test('estDangereux retourne false dans un cas normal', () {
       final meteo = MeteoData(
-        temperature: 28, humidite: 50, weatherCode: 0,
-        heure: '2026-06-26T12:00', previsions: [],
+        temperature: 28,
+        humidite: 50,
+        weatherCode: 0,
+        heure: '2026-06-26T12:00',
+        previsions: [],
       );
       expect(meteo.estDangereux(), isFalse);
     });
-
   });
 }

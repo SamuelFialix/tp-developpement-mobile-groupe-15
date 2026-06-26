@@ -10,13 +10,20 @@ class EcranDetailVille extends StatelessWidget {
 
   IconData _iconeMeteo(String condition) {
     switch (condition) {
-      case 'Ensoleille': return Icons.sunny;
-      case 'Nuageux': return Icons.cloud;
-      case 'Pluvieux': return Icons.umbrella;
-      case 'Orageux': return Icons.thunderstorm;
-      case 'Ventueux': return Icons.air;
-      case 'Canicule': return Icons.sunny;
-      default: return Icons.wb_cloudy;
+      case 'Ensoleille':
+        return Icons.sunny;
+      case 'Nuageux':
+        return Icons.cloud;
+      case 'Pluvieux':
+        return Icons.umbrella;
+      case 'Orageux':
+        return Icons.thunderstorm;
+      case 'Ventueux':
+        return Icons.air;
+      case 'Canicule':
+        return Icons.sunny;
+      default:
+        return Icons.wb_cloudy;
     }
   }
 
@@ -51,22 +58,20 @@ class EcranDetailVille extends StatelessWidget {
               style: TextStyle(fontSize: 18, color: Colors.grey),
             ),
             const SizedBox(height: 16),
-            if (meteo != null)
-              ...[
-                Text(
-                  '${meteo!.temperature.toStringAsFixed(1)} C',
-                  style: const TextStyle(
-                    fontSize: 72,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.blue,
-                  ),
+            if (meteo != null) ...[
+              Text(
+                '${meteo!.temperature.toStringAsFixed(1)} C',
+                style: const TextStyle(
+                  fontSize: 72,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue,
                 ),
-                Text(
-                  '${meteo!.conditionTexte} - ${meteo!.humidite}% humidite',
-                  style: TextStyle(fontSize: 18, color: Colors.grey[600]),
-                ),
-              ]
-            else
+              ),
+              Text(
+                '${meteo!.conditionTexte} - ${meteo!.humidite}% humidite',
+                style: TextStyle(fontSize: 18, color: Colors.grey[600]),
+              ),
+            ] else
               const Text('Meteo non disponible'),
           ],
         ),

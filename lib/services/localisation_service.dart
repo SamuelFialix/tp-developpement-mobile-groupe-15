@@ -10,19 +10,26 @@ class LocalisationService {
       perm = await Geolocator.requestPermission();
     }
     if (perm == LocationPermission.deniedForever) return null;
-      return await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.medium,
-      );
+    return await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.medium,
+    );
   }
-  Ville? trouverVilleProche(Position position, List<Ville>villes, Map<String, List<double>> coordonnees) {
+
+  Ville? trouverVilleProche(
+    Position position,
+    List<Ville> villes,
+    Map<String, List<double>> coordonnees,
+  ) {
     Ville? plusProche;
     double distanceMin = double.infinity;
     for (final ville in villes) {
       final coords = coordonnees[ville.nom];
       if (coords == null) continue;
       final distance = Geolocator.distanceBetween(
-      position.latitude, position.longitude,
-      coords[0], coords[1],
+        position.latitude,
+        position.longitude,
+        coords[0],
+        coords[1],
       );
       if (distance < distanceMin) {
         distanceMin = distance;

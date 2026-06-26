@@ -10,16 +10,13 @@ void main() async {
   await NotificationService.planifierNotificationQuotidienne();
   runApp(
     ChangeNotifierProvider(
-        create:(_) => VilleViewModel(),
-        child: MaterialApp(
-          title: 'AppMeteo',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-            useMaterial3: true,
-          ),
-          home: EcranAccueil(),
-        ),
+      create: (_) => VilleViewModel(),
+      child: MaterialApp(
+        title: 'AppMeteo',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
+        home: EcranAccueil(),
+      ),
     ),
   );
 }
