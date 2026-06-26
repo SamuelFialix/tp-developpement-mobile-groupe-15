@@ -2,9 +2,9 @@ name: CI - Tests AppMeteo
 
 on:
   push:
-    branches: [main, develop]
+    branches: [principal, main, develop]
   pull_request:
-    branches: [main]
+    branches: [principal, main]
 
 jobs:
   test-and-build:
