@@ -1,5 +1,3 @@
-import 'package:app_meteo/screens/ecran_liste_villes.dart';
-import 'package:app_meteo/viewmodels/ville_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../services/localisation_service.dart';
